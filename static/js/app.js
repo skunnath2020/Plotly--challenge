@@ -40,14 +40,43 @@ function createChart(id){
     d3.json("data/samples.json").then((data) => {
         var filtered = data.samples.filter(d => d.id.toString() === id);
         console.log("OTU " , filtered)
-    })
+        // Top ten OTU_ids and sample values
+        var toptenOTU = filtered[0]
+                        .otu_ids.slice(0, 10)
+                        .reverse()
+                        .sort(function(a,b){return b-a;})
+                        .map(otu => "OTU"+ otu)
+        var toptenSample= filtered[0]
+                        .sample_values
+                        .slice(0, 10)
+                        .reverse()
+                        .sort(function(a,b){return b-a;});
+        //Hover text
+        var labels = filtered[0].otu_labels.slice(0, 10) 
+        console.log(toptenOTU)
+
+        var trace = {
+            x: toptenSample,
+            y: toptenOTU,
+            text: labels,
+            type:"bar",
+            orientation: "h"
+         };
+         var layout = {
+             title: "Top ten OTUs",
+             yaxis: {
+                 tickmode: "linear"
+             }
+         };
+         Plotly.newPlot("bar", [trace], layout)
+    });
 }
 
 function optionChanged(id) {
     console.log("In OptionChanged "+ id);
     createDemographics(id);
-    // createChart(id); 
-};
+    createChart(id);
+   };
 
 init();
 
