@@ -50,7 +50,7 @@ function createChart(id){
                         .sample_values
                         .slice(0, 10)
                         .reverse()
-                        .sort(function(a,b){return b-a;});
+                        .sort(function(a,b){return a-b;});
         //Hover text
         var labels = filtered[0].otu_labels.slice(0, 10) 
         console.log(toptenOTU)
@@ -59,13 +59,14 @@ function createChart(id){
             x: toptenSample,
             y: toptenOTU,
             text: labels,
+            marker: {color: 'rgb(145,125,195)'},
             type:"bar",
             orientation: "h"
          };
          var layout = {
              title: "Top ten OTUs",
              yaxis: {
-                 tickmode: "linear"
+                 tickmode: "linear",
              }
          };
          Plotly.newPlot("bar", [trace], layout)
