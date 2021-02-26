@@ -1,7 +1,6 @@
 function init() {
     var selector = d3.select("#selDataset");
     d3.json("data/samples.json").then((data) => {
-        console.log(data.names[0]);
         data.names.forEach((name)=> {
             selector
             .append("option")
@@ -10,7 +9,7 @@ function init() {
     });
     //Construct initial plots with the first data value
     createDemographics(data.names[0]);
-    // createChart(data.names[0]); 
+    createChart(data.names[0]); 
     // On change to the DOM, call getData()
     // d3.selectAll("#selDataset").on("change", optionChanged);
 });
@@ -34,6 +33,13 @@ function showDemographics(metadata){
     Object.entries(metadata[0]).forEach(([key, value]) => {
         console.log(key);
         demographics.append("h5").text(`${key} : ${value}`)
+    })
+}
+
+function createChart(id){
+    d3.json("data/samples.json").then((data) => {
+        var filtered = data.samples.filter(d => d.id.toString() === id);
+        console.log("OTU " , filtered)
     })
 }
 
