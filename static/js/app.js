@@ -38,39 +38,62 @@ function showDemographics(metadata){
 
 function createChart(id){
     d3.json("data/samples.json").then((data) => {
-        var filtered = data.samples.filter(d => d.id.toString() === id);
+        var filtered = data.samples.filter(d => d.id.toString() === id)[0];
         console.log("OTU " , filtered)
         // Top ten OTU_ids and sample values
-        var toptenOTU = filtered[0]
+        var toptenOTU = filtered
                         .otu_ids.slice(0, 10)
                         .reverse()
                         .sort(function(a,b){return b-a;})
                         .map(otu => "OTU"+ otu)
-        var toptenSample= filtered[0]
+        var toptenSample= filtered
                         .sample_values
                         .slice(0, 10)
                         .reverse()
                         .sort(function(a,b){return a-b;});
         //Hover text
-        var labels = filtered[0].otu_labels.slice(0, 10) 
+        var labels = filtered.otu_labels.slice(0, 10) 
         console.log(toptenOTU)
-
+        //Build Bar charts     
         var trace = {
             x: toptenSample,
             y: toptenOTU,
             text: labels,
-            marker: {color: 'rgb(145,125,195)'},
+            marker: {color: 'rgb(106, 83, 184)'},
             type:"bar",
             orientation: "h"
          };
          var layout = {
              title: "Top ten OTUs",
+             "titlefont": {
+                "size": 18
+              },
              yaxis: {
                  tickmode: "linear",
              }
          };
          Plotly.newPlot("bar", [trace], layout)
-    });
+    
+        //Build Bubble charts
+        var trace1 = {
+           x: filtered.otu_ids,
+           y: filtered.sample_values,
+           text: filtered.otu_labels,
+           mode: "markers",
+           marker: {
+            size: filtered.sample_values,
+            color:filtered.otu_ids,
+            colorscale: "Earth"
+            },
+           
+        };
+        var bubble_layout = {
+            xaxis: {title: "OTU IDs"},
+            height : 600,
+            width: 1000
+        }
+        Plotly.newPlot(bubble, [trace1], bubble_layout)
+});
 }
 
 function optionChanged(id) {
@@ -83,6 +106,6 @@ init();
 
 
 // For each samples.id there are :
-// samples.otu_ids
-// samples.sample_values
-// samples.otu_labels
+    // samples.otu_ids
+    // samples.sample_values
+    // samples.otu_labels
