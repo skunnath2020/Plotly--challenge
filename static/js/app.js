@@ -48,8 +48,7 @@ function createChart(id){
                         .reverse()
                         .sort(function(a,b){return a-b;});
         //Hover text
-        var labels = filtered.otu_labels.slice(0, 10) 
-        console.log(toptenOTU)
+        var labels = filtered.otu_labels.slice(0, 10); 
         //Build Bar charts     
         var trace = {
             x: toptenSample,
