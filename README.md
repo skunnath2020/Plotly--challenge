@@ -1,7 +1,7 @@
 # Plotly--challenge
 Plot.ly assignment - Belly Button Biodiversity
 
-![Bacteria by filterforge.com](images/bacteria_ec.jpg)
+![Bacteria by wiki](images/bacteria_ec.jpg)
 
 This assignment, creates an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels.
 
@@ -19,4 +19,23 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 * Use `otu_labels` as the hovertext for the chart.
 
-  ![bar Chart](images/hw01.png)
+  ![bar Chart](images/hw01.PNG)
+3. Create a bubble chart that displays each sample.
+
+* Use `otu_ids` for the x values.
+
+* Use `sample_values` for the y values.
+
+* Use `sample_values` for the marker size.
+
+* Use `otu_ids` for the marker colors.
+
+* Use `otu_labels` for the text values.
+
+![Bubble Chart](Images/bubble_charts1443.PNG)
+
+4. Display the sample metadata, i.e., an individual's demographic information.
+
+5. Display each key-value pair from the metadata JSON object somewhere on the page.
+
+![hw](Images/hw03.png)
