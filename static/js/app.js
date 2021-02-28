@@ -1,3 +1,4 @@
+//Load the json data and call functions to construct plots
 function init() {
     var selector = d3.select("#selDataset");
     d3.json("data/samples.json").then((data) => {
@@ -10,7 +11,6 @@ function init() {
     //Construct initial plots with the first data value
     createDemographics(data.names[0]);
     createChart(data.names[0]); 
-    // On change to the DOM, call getData()
     // d3.selectAll("#selDataset").on("change", optionChanged);
 });
 };
