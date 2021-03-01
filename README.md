@@ -1,5 +1,5 @@
-# Plotly--challenge
-Plot.ly assignment - Belly Button Biodiversity<br>
+# Belly Button Biodiversity
+Plot.ly assignment <br>
 
 
 ![Bacteria by wiki](images/bacteria_ec.jpg)
