@@ -47,6 +47,6 @@ The dataset reveals that a small handful of microbial species (also called opera
 ![demographics](images/hw03.png)
 
 5. Display each key-value pair from the metadata JSON object somewhere on the page.
-Using the drop-down OTU's can be selected that display the charts corresponding to the selected OTU.<br>
+Using the drop-down, OTU's can be selected that display the charts corresponding to the selected OTU.<br>
 ![dropdown](images/dropdown.PNG)
 
