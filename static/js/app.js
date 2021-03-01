@@ -1,7 +1,7 @@
 //Load the json data and call functions to construct plots
 function init() {
     var selector = d3.select("#selDataset");
-    d3.json("../../data/samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         data.names.forEach((name)=> {
             selector
             .append("option")
