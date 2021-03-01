@@ -91,6 +91,7 @@ function createChart(id){
            
         };
         var bubble_layout = {
+            title: "<b>Bubble Chart OTU id vs Sample values</b>",
             xaxis: {title: "OTU IDs"},
             height : 600,
             width: 1000
@@ -127,7 +128,8 @@ function createChart(id){
             }
         ];
         
-        var layout = { width: 600, height: 500, margin: { t: 10, b: 0 } };
+        var layout = { width: 600, height: 500, margin: { t: 10, b: 0 },
+                        };
         Plotly.newPlot('gauge', data, layout);
 });
 }
