@@ -1,6 +1,11 @@
 # Plotly--challenge
 Plot.ly assignment - Belly Button Biodiversity
-
+The most common bacteria found in the Belly-Button of participants in this study were: 
+Staphylococcus
+Corynebacterium
+Streptococcus
+Pseudomonas
+Prevotella
 ![Bacteria by wiki](images/bacteria_ec.jpg)
 
 This assignment, creates an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels.
